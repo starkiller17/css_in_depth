@@ -1,0 +1,89 @@
+<style>
+  :root {
+    --main-font: Helvetica, Arial, sans-serif;
+    --brand-color: #369;
+    font-size: 0.75em;
+    --main-bg: #fff;
+    --main-color: #000;
+  }
+
+  p {
+    font-family: var(--main-font);
+    color: var(--brand-color);
+  }
+
+  @media (min-width: 800px) {
+    :root {
+      font-size: 0.875em;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    :root {
+      font-size: 1em;
+    }
+  }
+
+  .panel {
+    padding: 1rem;
+    padding: 1em;
+    border-radius: 0.5em;
+    border: 1px solid #999;
+    background-color: var(--main-bg);
+    color: var(--main-color);
+  }
+
+  .panel > h2 {
+    margin-top: 0;
+    font-size: : 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .dark {
+    margin-top: 2em;
+    padding: 1em;
+    background-color: #999;
+    --main-bg: #333;
+    --main-color: #fff;
+  }
+</style>
+
+<p>
+  This listing specifies fallback values in two different declarations. In the first, --main
+-font is defined as Helvetica, Arial, sans-serif, so this value is used. In the second,
+--secondary-color is an undefined variable, so the fallback value blue is used.
+</p>
+
+<body>
+  <div class="panel">
+    <h2>Single-origin</h2>
+    <div class="panel-body">
+      We ahve built partnerships with small farms around the world to hand-select
+      beans at the peak of season. We then acrefully roast in <a href="/batch-size">small batches</a>
+      to maximize their potential-
+    </div>
+  </div>
+</body>
+
+<section>
+  <div class="dark">
+    <div class="panel">
+      <h2>Single-origin</h2>
+      <div class="panel-body">
+        We ahve built partnerships with small farms around the world to hand-select
+        beans at the peak of season. We then acrefully roast in <a href="/batch-size">small batches</a>
+        to maximize their potential-
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  var rootElement = document.documentElement;
+  var styles = getComputedStyle(rootElement);
+  var mainColor = styles.getPropertyValue('--main-bg');
+  console.log(String(mainColor).trim());
+  // Set value of the css variable on the root element
+  rootElement.style.setProperty('--main-bg', '#cdf');
+</script>
