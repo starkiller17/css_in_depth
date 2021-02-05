@@ -1,0 +1,83 @@
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body * + * {
+    margin-top: 1.5em;
+}
+
+header {
+    padding: 1em 1.5em;
+    color: #fff;
+    background-color: #0072b0;
+    border-radius: .5em;
+    margin-bottom: 1.5em;
+}
+
+.main {
+    padding: 0 1.5em;
+    background-color: #fff;
+    border-radius: .5em;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.media {
+    float: left;
+    /* Adds a right and bottom maring to each media element */
+    margin: 0 1.5em 1.5em 0;
+    /* Substracts the margin from the width to avoid unwanted line wrapping */
+    width: calc(50% - 1.5em);
+    padding: 1.5em;
+    background-color: #eee;
+    border-radius: 0.5em;
+}
+
+/* Each new row clears the row above */
+.media:nth-child(odd) {
+    clear:left;
+}
+
+.media-image {
+    float: left;
+    margin-right: 1.5em;
+}
+
+.media-body {
+    overflow: auto;
+    margin-top: 0;
+}
+
+.media-body h4 {
+    margin-top: 0;
+}
+
+/* Targets the pseudo-element at the beginning and end of the container */
+.clearfix::before,
+.clearfix::after {
+    /* A non-inline display value and a content value cause
+      the pseudo-element to appear in the document */
+    display: table; /* Prevents margins from collpasing through the pseudo elements */
+    content: " ";
+}
+
+/* Targets the pseudo-element at the end of the container
+   only the ::after pseudo element need to clear floats */
+.clearfix::after {
+    /* Makes the pseudo-element clear all floats in the container */
+    clear: both;
+}
